@@ -1,0 +1,2656 @@
+@charset "utf-8";
+/*
+/*	Copyright (c) 2021 ib-themes
+/*	Author: ib-themes
+/*	This file is made for Barna
+/*
+
+
+	List of CSS codes:
+	
+	01) Base CSS
+	02) Main
+	03) Header
+	04) Hero Header (element)
+	05) Section About
+	06) Partners (element)
+	07) Main Title (element)
+	08) About (element)
+	09) Section Skills
+	10) Progress Bar (element)
+	11) Section Resume
+	12) Resume (element)
+	13) Section Services
+	14) Services (element)
+	15) Section Portfolio
+	16) Portfolio (element)
+	17) Section Counter
+	18) Counter (element)
+	19) Section Testimonials
+	20) Testimonials (element)
+	21) Section News
+	22) Blog (element)
+	23) Section Contact
+	24) Contact (element)
+	25) Footer
+	26) Section's Title
+	27) Mobile Header
+	28) Responsive
+
+
+/*------------------------------------------------------------------*/
+/*	01) Base CSS
+/*------------------------------------------------------------------*/
+:root {
+  --pc: #dd1c63;
+  --hff: "Nunito Sans", sans-serif;
+  --bff: "Mulish", Arial, Helvetica, sans-serif;
+}
+html {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  font-family: var(--bff);
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: #a1a1a1;
+  background-color: #000;
+
+  word-break: break-word;
+}
+.svg {
+  fill: currentcolor;
+  width: 20px;
+  height: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 600;
+  font-family: var(--hff);
+  color: #e4e4e4;
+}
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  color: #e4e4e4;
+}
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover {
+  color: var(--pc);
+}
+input {
+  font-family: "Jost";
+}
+p {
+  letter-spacing: 0;
+}
+a:focus {
+  outline: none;
+}
+@media (max-width: 1200px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 1040px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+}
+#preloader:before,
+#preloader:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+#preloader:after {
+  left: auto;
+  right: 0;
+}
+#preloader .loader_line {
+  margin: auto;
+  width: 1px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.loader_line:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: #000;
+  -webkit-animation: lineheight 1000ms ease-in-out 0s forwards;
+  -o-animation: lineheight 1000ms ease-in-out 0s forwards;
+  animation: lineheight 1000ms ease-in-out 0s forwards;
+}
+.loader_line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #c4c4c4;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-animation: lineround 1200ms linear 0s infinite;
+  -o-animation: lineround 1200ms linear 0s infinite;
+  animation: lineround 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+@keyframes lineheight {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes lineround {
+  0% {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    -o-transform: translateY(200%);
+    transform: translateY(200%);
+  }
+}
+
+/*hiding all*/
+.preloaded .loader_line:after {
+  opacity: 0;
+}
+.preloaded .loader_line {
+  opacity: 0;
+  height: 100% !important;
+}
+.preloaded:before,
+.preloaded:after {
+  -webkit-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+  -o-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+  animation: preloadedzero 300ms ease-in-out 500ms forwards;
+}
+@keyframes preloadedzero {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+/*------------------------------------------------------------------*/
+/*	02) Main
+/*------------------------------------------------------------------*/
+.barna__wrapper,
+.barna__wrapper *:before,
+.barna__wrapper *:after,
+.barna__wrapper * {
+  box-sizing: border-box;
+}
+.barna__wrapper {
+  width: 100%;
+  float: left;
+  clear: both;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.barna__wrapper:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+.barna__wrapper .main {
+  width: 100%;
+  float: left;
+  clear: both;
+}
+/*------------------------------------------------------------------*/
+/*	03) Header
+/*------------------------------------------------------------------*/
+#header {
+  width: 100%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+#header.scrolled {
+  background-color: #000;
+  padding: 20px 40px;
+}
+.logo {
+  margin-right: 40px;
+}
+.social {
+  margin-left: 40px;
+}
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -50px;
+}
+.nav li {
+  margin: 0;
+  padding: 0;
+  margin-left: 50px;
+}
+.nav a {
+  font-family: var(--hff);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #e4e4e4;
+  position: relative;
+}
+.nav a:before {
+  left: 6px;
+  bottom: -1px;
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--pc);
+  right: 100%;
+  margin-right: 6px;
+  transition: all 0.5s ease;
+}
+.nav li.current a:before,
+.nav a:hover:before {
+  right: -8px;
+  margin-right: 0;
+}
+.social ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -17px;
+}
+.social li {
+  margin: 5px 0;
+  padding: 0;
+  margin-left: 17px;
+}
+.social .svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+.social a {
+  display: block;
+  text-decoration: none;
+  color: #e4e4e4;
+}
+.social a:hover {
+  color: var(--pc);
+}
+/*------------------------------------------------------------------*/
+/*	04) Hero Header (element)
+/*------------------------------------------------------------------*/
+.barna__hero {
+  width: 100%;
+  float: left;
+  position: relative;
+  clear: both;
+}
+.barna__hero .item {
+  min-height: 100vh;
+  padding: 170px 0 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.barna__hero .bg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.barna__hero .bg1 {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  transition: all 1s 1s ease;
+  background-color: #000;
+}
+.barna__hero .bg2 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 1s 1s ease;
+  background-color: #000;
+}
+.barna__hero .bg1 {
+  width: 31%;
+  left: -31%;
+}
+.barna__hero .bg2 {
+  width: 69%;
+  right: -69%;
+}
+.barna__hero .active .bg1 {
+  left: 0;
+}
+.barna__hero .active .bg2 {
+  right: 0;
+}
+.barna__hero .item p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+}
+.barna__hero .item p span {
+  position: relative;
+  padding-bottom: 1px;
+}
+.barna__hero .item p span:after {
+  left: 6px;
+  bottom: -1px;
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--pc);
+  right: 100%;
+  margin-right: 6px;
+  transition: all 1s 1s ease;
+}
+.barna__hero .item h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 75px;
+  line-height: 80px;
+  font-weight: 800;
+  font-family: var(--bff);
+  margin-bottom: 30px;
+}
+.barna__hero .item h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 600;
+  font-family: var(--bff);
+  color: var(--pc);
+}
+.barna__hero .title_holder {
+  position: relative;
+  padding-bottom: 24px;
+}
+.barna__hero .title_holder:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 1px;
+  background-color: #e4e4e4;
+}
+.barna__hero .divider {
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 62px;
+  top: 100%;
+  margin-top: 100px;
+  left: 0;
+  border: 1px solid #b3b3b3;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.barna__hero .divider:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 32px;
+  left: 50%;
+  top: 50%;
+  margin: -16px 0 0 -1px;
+  transform: translateY(150%);
+  background-color: var(--pc);
+  transition: all 1s 1s ease;
+}
+.barna__hero .active .divider:after {
+  transform: translateY(0%);
+}
+.barna__hero .my__nav a {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #292929;
+  display: block;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 5;
+  border-radius: 50%;
+  outline: none;
+  color: #b3b3b3;
+  transition: all 0.3s;
+}
+.barna__hero .my__nav a:hover {
+  background-color: #444;
+}
+
+.barna__hero .my__nav .svg {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -5px;
+}
+.barna__hero .my__nav .prev {
+  left: 40px;
+}
+.barna__hero .my__nav .next {
+  right: 40px;
+}
+.barna__hero .my__nav .next .svg {
+  transform: rotate(180deg);
+}
+.barna__hero .active .item p span:after {
+  right: -8px;
+  margin-right: 0;
+}
+/*------------------------------------------------------------------*/
+/*	05) Section About
+/*------------------------------------------------------------------*/
+#about {
+  background-color: #121217;
+  position: relative;
+  z-index: 3;
+  padding-bottom: 150px;
+}
+/*------------------------------------------------------------------*/
+/*	06) Partners (element)
+/*------------------------------------------------------------------*/
+.barna__partners {
+  width: 100%;
+  position: relative;
+  transform: translateY(-50%);
+}
+.barna__partners .in {
+  width: 100%;
+  background-image: url(../img/partners/bg.png);
+  background-size: cover;
+  background-repeat: repeat;
+}
+.barna__partners ul {
+  margin: 0;
+  padding: 55px 45px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+.barna__partners li {
+  margin: 0;
+  width: 25%;
+  padding: 15px;
+}
+.barna__partners a {
+  color: #e4e4e4;
+  text-decoration: none;
+}
+/*------------------------------------------------------------------*/
+/*	07) Main Title (element)
+/*------------------------------------------------------------------*/
+.barna__title p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  margin-bottom: 11px;
+  letter-spacing: 2px;
+}
+.barna__title p span {
+  position: relative;
+  padding-bottom: 1px;
+}
+.barna__title p span:after {
+  left: 6px;
+  bottom: -1px;
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--pc);
+  right: -8px;
+}
+.barna__title h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 15px;
+}
+.barna__title h3:after {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 20px;
+  border-radius: 50%;
+  background-color: var(--pc);
+}
+.barna__title.center {
+  text-align: center;
+}
+.barna__title.center h3 {
+  padding-bottom: 17px;
+}
+.barna__title.center h3:after {
+  left: 50%;
+  margin-left: -5px;
+  bottom: 0;
+  top: auto;
+}
+/*------------------------------------------------------------------*/
+/*	08) About (element)
+/*------------------------------------------------------------------*/
+.barna__about .in {
+  display: flex;
+  align-items: flex-start;
+}
+.barna__about .left {
+  width: 38%;
+  position: relative;
+  padding: 30px 30px 0 0;
+}
+.barna__about .left:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 30px;
+  left: 30px;
+  background-color: #292929;
+}
+.barna__about .right {
+  width: 62%;
+  padding-left: 60px;
+}
+.barna__about .barna__title {
+  margin-bottom: 12px;
+}
+.barna__about .desc p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
+}
+.barna__about .desc p:last-child {
+  margin-bottom: 0;
+}
+.barna__about .desc p a {
+  color: var(--pc);
+  text-decoration: none;
+  position: relative;
+}
+.barna__about .desc p a:after {
+  left: 6px;
+  bottom: -1px;
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: var(--pc);
+  right: 100%;
+  margin-right: 6px;
+  transition: all 0.5s ease;
+}
+.barna__about .desc p a:hover:after {
+  right: -8px;
+  margin-right: 0;
+}
+.barna__about .desc {
+  margin-bottom: 24px;
+}
+.barna__about .list {
+  margin-bottom: 28px;
+}
+.barna__about .list ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -20px;
+}
+.barna__about .list ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.barna__about .list li {
+  width: 50%;
+  float: left;
+  padding-left: 20px;
+}
+.barna__about .list .item {
+  padding-left: 22px;
+  position: relative;
+}
+.barna__about .list .svg {
+  width: 14px;
+  height: 16px;
+  color: var(--pc);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+.barna__about .list span {
+  color: var(--pc);
+  margin-right: 7px;
+}
+.barna__about .button {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.barna__about .button a {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  padding: 10px 40px;
+  line-height: 35px;
+  border-radius: 30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background-color: #292929;
+  color: #e4e4e4;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: none;
+}
+.barna__about .button a .text {
+  color: var(--pc);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.barna__about .button a .text span {
+  display: block;
+  transition: all 0.3s ease;
+}
+.barna__about .button a .text span:nth-child(2) {
+  position: absolute;
+  transform: translateY(102%);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.barna__about .button a:hover {
+  color: var(--pc);
+}
+.barna__about .button a:hover .text span:nth-child(1) {
+  transform: translateY(-102%);
+}
+.barna__about .button a:hover .text span:nth-child(2) {
+  transform: translateY(0%);
+  color: #e4e4e4;
+}
+/*------------------------------------------------------------------*/
+/*	09) Section Skills
+/*------------------------------------------------------------------*/
+#skills {
+  padding: 140px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+#skills .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1, 1, 26, 0.5);
+}
+#skills .in {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+#skills .left {
+  width: 50%;
+  padding-right: 15px;
+  position: relative;
+}
+#skills .left:after {
+  width: 10px;
+  height: 10px;
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--pc);
+}
+#skills .left p {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 26px;
+  line-height: 40px;
+  font-family: var(--hff);
+  color: #e4e4e4;
+  font-weight: 300;
+}
+#skills .right {
+  width: 50%;
+  padding-left: 15px;
+}
+/*------------------------------------------------------------------*/
+/*	10) Progress Bar (element)
+/*------------------------------------------------------------------*/
+.barna__progress .progress_item {
+  width: 100%;
+  float: left;
+  clear: both;
+  margin-bottom: 23px;
+  position: relative;
+  padding-bottom: 9px;
+  overflow: hidden;
+}
+.barna__progress .progress_item:last-child {
+  margin-bottom: 0;
+}
+.barna__progress .progress_top {
+  width: 100%;
+  position: relative;
+  margin-bottom: 19px;
+}
+.barna__progress .progress_percent {
+  position: absolute;
+  z-index: 2;
+  line-height: 40px;
+  font-size: 16px;
+  font-family: var(--hff);
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  transition: all 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.barna__progress .progress_title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+  line-height: 40px;
+}
+.barna__progress .progress_bgwrap {
+  width: 100%;
+  position: relative;
+  height: 8px;
+  background-color: #292929;
+  border-radius: 16px;
+}
+.barna__progress .progress_bg {
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: -1px;
+  left: 0;
+  bottom: -1px;
+}
+.barna__progress .progress_bg:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 100%;
+  background-color: var(--pc);
+  border-radius: 16px;
+}
+.barna__progress .progress_bg span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  background-color: var(--pc);
+  border-radius: 50%;
+  right: 110%;
+}
+.barna__progress .progress_bg span:after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--pc);
+  opacity: 0.5;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.barna__progress .open .progress_bg span {
+  right: 4px;
+  -webkit-animation: progress_animation2 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* Safari 4+ */
+  -moz-animation: progress_animation2 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* Fx 5+ */
+  animation: progress_animation2 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* IE 10+ */
+}
+.barna__progress .open .progress_bg:after {
+  right: 25px;
+  -webkit-animation: progress_animation 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* Safari 4+ */
+  -moz-animation: progress_animation 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* Fx 5+ */
+  animation: progress_animation 3s cubic-bezier(0.165, 0.84, 0.44, 1); /* IE 10+ */
+}
+@-webkit-keyframes progress_animation {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 25px;
+  }
+}
+@-moz-keyframes progress_animation {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 25px;
+  }
+}
+@keyframes progress_animation {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 25px;
+  }
+}
+@-webkit-keyframes progress_animation2 {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 4px;
+  }
+}
+@-moz-keyframes progress_animation2 {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 4px;
+  }
+}
+@keyframes progress_animation2 {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 4px;
+  }
+}
+
+/*------------------------------------------------------------------*/
+/*	11) Section Resume
+/*------------------------------------------------------------------*/
+#resume {
+  padding: 140px 0 101px;
+  background-color: #01011a;
+}
+/*------------------------------------------------------------------*/
+/*	12) Resume (element)
+/*------------------------------------------------------------------*/
+.barna__resume_list .resume {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.barna__resume_list .resume_item {
+  margin: 0;
+  padding: 48px 0 13px;
+  border-bottom: 1px solid #292929;
+}
+.barna__resume_list .resume_item:first-child {
+  padding-top: 42px;
+}
+.barna__resume_list .resume_item:last-child {
+  border-bottom: none;
+}
+.barna__resume_list .item_wrapper {
+  margin-left: -50px;
+  display: flex;
+}
+.barna__resume_list .left {
+  width: 25%;
+  padding-left: 50px;
+  display: flex;
+  color: #e4e4e4;
+}
+.barna__resume_list .left .svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.barna__resume_list .left h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+}
+.barna__resume_list .right {
+  width: 75%;
+  padding-left: 50px;
+}
+.barna__resume_list .right ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.barna__resume_list .right li {
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+  width: 50%;
+  margin-bottom: 28px;
+}
+.barna__resume_list .item .svg {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+.barna__resume_list .item p {
+  margin: 0;
+  padding: 0;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 30px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.barna__resume_list .item h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+  line-height: 40px;
+  font-weight: 500;
+}
+.barna__resume_list .item h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  font-family: var(--bff);
+  color: var(--pc);
+}
+/*------------------------------------------------------------------*/
+/*	13) Section Services
+/*------------------------------------------------------------------*/
+#services {
+  padding: 140px 0 82px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#services .barna__title {
+  margin-bottom: 50px;
+}
+/*------------------------------------------------------------------*/
+/*	14) Services (element)
+/*------------------------------------------------------------------*/
+.barna__services ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -100px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+.barna__services li {
+  margin: 0;
+  padding: 0;
+  width: 33.3333%;
+  padding-left: 100px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.barna__services .item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+}
+.barna__services .icon {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #292929;
+  margin-bottom: 35px;
+}
+.barna__services .icon .svg {
+  width: 45px;
+  height: 45px;
+  color: #e4e4e4;
+}
+.barna__services h3 {
+  margin: 0;
+  padding: 0 20px;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  position: relative;
+  width: 100%;
+}
+.barna__services h3 .svg {
+  position: absolute;
+  z-index: -1;
+  color: var(--pc);
+  height: auto;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+.barna__services .item:hover h3 .svg {
+  opacity: 1;
+}
+.barna__services p {
+  margin: 0;
+  padding: 0;
+  font-family: var(--hff);
+}
+/*------------------------------------------------------------------*/
+/*	15) Section Portfolio
+/*------------------------------------------------------------------*/
+#portfolio {
+  padding: 140px 0 120px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#portfolio .barna__title {
+  margin-bottom: 37px;
+}
+/*------------------------------------------------------------------*/
+/*	16) Portfolio (element)
+/*------------------------------------------------------------------*/
+.barna__portfolio .filter {
+  margin-bottom: 38px;
+}
+.barna__portfolio .filter ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -50px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.barna__portfolio .filter li {
+  padding-left: 50px;
+  margin: 2px 0;
+}
+.barna__portfolio .filter a {
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 30px;
+  letter-spacing: 2px;
+  color: #e4e4e4;
+  position: relative;
+}
+.barna__portfolio .filter a:after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: 100%;
+  height: 2px;
+  margin-right: 6px;
+  bottom: 0;
+  background-color: var(--pc);
+  transition: all 0.3s ease;
+}
+.barna__portfolio .filter a.current:after {
+  right: 0;
+  margin-right: 0;
+}
+.barna__portfolio .list ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -30px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: height 500ms ease;
+}
+.barna__portfolio .list li {
+  width: 33.3333%;
+  padding-left: 30px;
+  margin: 0 0 30px 0;
+}
+.barna__portfolio .item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.barna__portfolio .list img {
+  opacity: 0;
+  min-width: 100%;
+}
+.barna__portfolio .main_image {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.barna__portfolio .title_holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 30px 26px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+.barna__portfolio .title_holder:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--pc);
+  opacity: 0.49;
+}
+.barna__portfolio .title_holder * {
+  position: relative;
+  z-index: 2;
+}
+.barna__portfolio .title_holder h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e4e4e4;
+}
+.barna__portfolio .title_holder .icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background-color: var(--pc);
+  color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.barna__portfolio .title_holder .icon .svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.barna__portfolio .item:hover .title_holder {
+  opacity: 1;
+}
+.barna__portfolio .zoom {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/*------------------------------------------------------------------*/
+/*	17) Section Counter
+/*------------------------------------------------------------------*/
+#counter {
+  padding: 135px 0;
+  background-color: #01011a;
+}
+/*------------------------------------------------------------------*/
+/*	18) Counter (element)
+/*------------------------------------------------------------------*/
+.barna__counters ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -50px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+.barna__counters li {
+  margin: 0;
+  padding: 10px 0 10px 50px;
+  width: 33.3333%;
+}
+.barna__counters .item {
+  width: 100%;
+  position: relative;
+  padding-left: 60px;
+}
+.barna__counters .icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 5px;
+  left: 0;
+}
+.barna__counters .svg {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+.barna__counters h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0.25px;
+}
+.barna__counters p {
+  color: #b3b3b3;
+  margin: 0;
+  padding: 0;
+}
+/*------------------------------------------------------------------*/
+/*	19) Section Testimonials
+/*------------------------------------------------------------------*/
+#testimonials {
+  padding: 140px 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#testimonials .barna__title {
+  margin-bottom: 50px;
+}
+/*------------------------------------------------------------------*/
+/*	20) Testimonials (element)
+/*------------------------------------------------------------------*/
+.barna__testimonials {
+  position: relative;
+}
+.barna__testimonials .item {
+  text-align: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.barna__testimonials .my__dots .right,
+.barna__testimonials .my__dots .left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: flex-start;
+  width: 215px;
+  overflow: hidden;
+  margin-left: -7px;
+}
+.barna__testimonials .my__dots .right {
+  left: auto;
+  right: 0;
+  justify-content: flex-end;
+}
+.barna__testimonials .my__dots span {
+  width: 10px;
+  height: 10px;
+  background-color: #b3b3b3;
+  border-radius: 50%;
+  margin-left: 7px;
+  display: block;
+  transition: all 0.3s ease;
+}
+.barna__testimonials .my__dots .active {
+  width: 15px;
+  height: 15px;
+  background-color: var(--pc);
+}
+.barna__testimonials .img_holder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 31px;
+
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.barna__testimonials p {
+  margin: 0;
+  padding: 0 15%;
+  margin-bottom: 23px;
+}
+@media (max-width: 767px) {
+  .barna__testimonials p {
+    padding: 0;
+  }
+}
+.barna__testimonials h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.barna__testimonials h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--bff);
+  margin-bottom: 36px;
+}
+.barna__testimonials .icon {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.barna__testimonials .icon .svg {
+  width: 40px;
+  height: 40px;
+  color: #e4e4e4;
+  display: block;
+}
+/*------------------------------------------------------------------*/
+/*	21) Section News
+/*------------------------------------------------------------------*/
+#news {
+  padding: 145px 0;
+  background-color: #01011a;
+}
+#news .barna__title {
+  margin-bottom: 50px;
+}
+/*------------------------------------------------------------------*/
+/*	22) Blog (element)
+/*------------------------------------------------------------------*/
+.barna__blog .owl-stage-outer {
+  margin-bottom: 40px;
+}
+.barna__blog .owl-dots {
+  margin-left: -7px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+}
+.barna__blog .owl-dots .owl-dot span {
+  background-color: #b3b3b3;
+  margin: 0 0 0 7px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.barna__blog .owl-dots .owl-dot.active span {
+  width: 15px;
+  height: 15px;
+}
+.barna__blog .owl-dots .owl-dot.active span,
+.barna__blog .owl-dots .owl-dot:hover span {
+  background-color: var(--pc);
+}
+.barna__blog .item {
+  border-radius: 10px;
+  background-color: #292929;
+  overflow: hidden;
+  cursor: pointer;
+}
+.barna__blog .item_top {
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  overflow: hidden;
+}
+.barna__blog .item_top .main_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.barna__blog .item_top img {
+  min-width: 100%;
+  opacity: 0;
+}
+.barna__blog .item_bottom {
+  width: 100%;
+}
+.barna__blog .item_title {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  margin-top: -15px;
+  padding: 0 30px 21px;
+  position: relative;
+}
+.barna__blog .item_title:after {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  background-color: #01011a;
+  border-radius: 10px;
+  bottom: 0;
+  height: 1px;
+  content: "";
+}
+.barna__blog .category {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0 20px;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #e4e4e4;
+  border-radius: 17px;
+  letter-spacing: 2px;
+  font-family: var(--hff);
+  background-color: var(--pc);
+  text-transform: uppercase;
+  margin-bottom: 21px;
+}
+.barna__blog .item_title h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.barna__blog .item_title h3 a {
+  text-decoration: none;
+  display: block;
+  outline: none;
+}
+.barna__blog .item_meta {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 30px 30px;
+}
+.barna__blog .item_meta .main_image {
+  width: 33px;
+  height: 33px;
+  border: 3px solid var(--pc);
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.barna__blog .author {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  -ms-align-items: center;
+  align-items: center;
+}
+.barna__blog .item_meta h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 33px;
+  font-weight: 400;
+  color: #a1a1a1;
+  font-family: var(--bff);
+}
+/*------------------------------------------------------------------*/
+/*	23) Section Contact
+/*------------------------------------------------------------------*/
+#contact {
+  background-color: #141414;
+  padding: 140px 0;
+}
+#contact .barna__title {
+  margin-bottom: 50px;
+}
+/*------------------------------------------------------------------*/
+/*	24) Contact (element)
+/*------------------------------------------------------------------*/
+.barna__contact {
+  width: 100%;
+  padding: 20px 50px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.barna__contact .item.nobg {
+  background-color: transparent;
+  border-radius: 0;
+}
+.barna__contact .item {
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+  border-radius: 25px;
+}
+.barna__contact input,
+.barna__contact textarea {
+  background-color: transparent;
+  position: relative;
+  z-index: 3;
+}
+.barna__contact .placeholder {
+  position: absolute;
+  padding: 0 20px;
+  display: block;
+  font-size: 14px;
+  line-height: 38px;
+  left: 0;
+  top: 6px;
+  white-space: nowrap;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.barna__contact .active .placeholder {
+  left: 100%;
+  transform: translateX(-100%);
+  background-color: #000;
+  margin-left: -6px;
+}
+.barna__contact .info {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.barna__contact .info > * {
+  padding: 10px 20px;
+  background-color: #141414;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  display: none;
+  color: var(--pc);
+}
+.barna__contact .in {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  margin-left: -30px;
+}
+.barna__contact .left {
+  width: 50%;
+  padding-left: 30px;
+}
+.barna__contact .right {
+  width: 50%;
+  padding-left: 30px;
+}
+#send_message {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 46px;
+  padding: 0 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #141414;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #a1a1a1;
+  outline: none;
+  border: 2px solid transparent;
+}
+#send_message:focus {
+  border-color: var(--pc);
+}
+/*------------------------------------------------------------------*/
+/*	25) Footer
+/*------------------------------------------------------------------*/
+#footer {
+  width: 100%;
+  float: left;
+  clear: both;
+  background-color: #000000;
+}
+#footer .widgets {
+  width: 100%;
+  float: left;
+  clear: both;
+  padding: 150px 0 96px;
+}
+
+#footer .widgets .list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: -50px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+#footer .widgets .list_item {
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+  width: 33.3333%;
+  margin-bottom: 55px;
+}
+#footer .widgets .item {
+  width: 100%;
+  position: relative;
+  padding-left: 80px;
+}
+#footer .widgets .icon {
+  width: 50px;
+  height: 50px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #292929;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#footer .widgets h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+#footer .widgets p {
+  margin: 0;
+  padding: 0;
+}
+#footer .social {
+  margin-left: 0;
+}
+#footer .social a {
+  color: #b3b3b3;
+}
+#footer .social a:hover {
+  color: var(--pc);
+}
+#footer .copyright {
+  width: 100%;
+  float: left;
+  clear: both;
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid #292929;
+}
+#footer .copyright p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 30px;
+}
+#footer .copyright a {
+  text-decoration: none;
+  color: var(--pc);
+  position: relative;
+}
+#footer .copyright a:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 100%;
+  height: 2px;
+  margin-right: 6px;
+  bottom: 0;
+  background-color: var(--pc);
+  transition: all 0.3s ease;
+}
+#footer .copyright a:hover:after {
+  right: 0;
+  margin-right: 0;
+}
+/*------------------------------------------------------------------*/
+/*	26) Section's Title
+/*------------------------------------------------------------------*/
+.barna__section_title {
+  top: 50%;
+  position: absolute;
+  z-index: 55;
+  width: 277px;
+  text-align: center;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  left: 10px;
+  margin-top: 138px; /* 277(width)/2 */
+}
+.barna__section_title .title {
+  will-change: transform;
+  transition: transform 5s cubic-bezier(0, 0, 0, 1) 0s;
+}
+.barna__section_title h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48px;
+  position: relative;
+  z-index: 5;
+}
+.barna__section_title .svg {
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: var(--pc);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+}
+.barna__section_title.right {
+  left: auto;
+  right: 10px;
+  transform: rotate(90deg);
+  transform-origin: top right;
+  margin-top: 138px; /* 277(width)/2 */
+}
+/*------------------------------------------------------------------*/
+/*	27) Mobile Header
+/*------------------------------------------------------------------*/
+.barna__mobile_header {
+  display: none;
+  width: 100%;
+  position: fixed;
+  z-index: 555;
+  background-color: #000;
+}
+.barna__mobile_header .header_top {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden;
+}
+.barna__mobile_header .header_top a {
+  outline: none;
+}
+.barna__mobile_header .header_bottom {
+  display: none;
+  padding: 25px 20px;
+  border-top: 1px solid #292929;
+}
+.barna__mobile_header .header_bottom ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.barna__mobile_header .header_bottom li:last-child {
+  margin-bottom: 0;
+}
+.barna__mobile_header .header_bottom li {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.barna__mobile_header .header_bottom a {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: #e4e4e4;
+  line-height: 1.3;
+  font-size: 18px;
+}
+.barna__mobile_header .header_bottom a:after {
+  left: 6px;
+  bottom: -1px;
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--pc);
+  right: 100%;
+  margin-right: 6px;
+  transition: all 0.3s ease;
+}
+.barna__mobile_header .header_bottom li.current a:after,
+.barna__mobile_header .header_bottom a:hover:after {
+  right: -8px;
+  margin-right: 0;
+}
+
+/*------------------------------------------------------------------*/
+/*	28) Responsive
+/*------------------------------------------------------------------*/
+@media (max-width: 1400px) {
+  .barna__hero .my__nav .next {
+    right: 20px;
+  }
+  .barna__hero .my__nav .prev {
+    left: 20px;
+  }
+}
+@media (max-width: 1040px) {
+  .barna__section_title {
+    display: none;
+  }
+  #header {
+    display: none;
+  }
+  .barna__mobile_header {
+    display: block;
+  }
+
+  .barna__hero .my__nav {
+    position: absolute;
+    right: 20px;
+    top: 150px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    column-gap: 10px;
+  }
+  .barna__hero .my__nav a {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .barna__hero .item h3 {
+    font-size: 50px;
+    line-height: 1.1;
+  }
+  .barna__hero .item h5 {
+    font-size: 40px;
+  }
+  .barna__counters li,
+  .barna__services li,
+  #footer .widgets .list_item,
+  .barna__portfolio .list li {
+    width: 50%;
+  }
+  .barna__services li {
+    padding-left: 50px;
+  }
+  .barna__services ul {
+    margin-left: -50px;
+  }
+  .barna__contact {
+    padding: 20px;
+  }
+  .barna__contact .item {
+    margin-bottom: 20px;
+  }
+  .barna__contact .left,
+  .barna__contact .right {
+    padding-left: 20px;
+  }
+  .barna__contact .in {
+    margin-left: -20px;
+  }
+  textarea {
+    height: 120px;
+  }
+  .barna__section_title h3 {
+    line-height: 20px;
+    font-size: 30px;
+  }
+  .barna__resume_list .left {
+    width: 40%;
+  }
+  .barna__resume_list .right {
+    width: 60%;
+  }
+  .barna__resume_list .right li {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .barna__about .in {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  .barna__partners {
+    transform: translateY(-100px);
+  }
+  .barna__partners li {
+    width: 50%;
+  }
+  .barna__partners a {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .barna__about .right {
+    width: 100%;
+    padding-left: 0;
+  }
+  .barna__about .left {
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 50px;
+  }
+  #skills .left {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  #skills .right {
+    width: 100%;
+    padding-left: 0;
+  }
+  .barna__resume_list .item_wrapper {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  .barna__resume_list .left {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .barna__resume_list .right,
+  .barna__counters li,
+  .barna__services li,
+  #footer .widgets .list_item,
+  .barna__portfolio .list li,
+  .barna__contact .left,
+  .barna__contact .right {
+    width: 100%;
+  }
+  .barna__contact .in {
+    flex-wrap: wrap;
+  }
+  .my__container {
+    padding: 0;
+  }
+  .barna__testimonials .my__dots {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .barna__testimonials .my__dots .right,
+  .barna__testimonials .my__dots .left {
+    top: auto;
+    transform: none;
+    position: relative;
+  }
+}
+@media (max-width: 480px) {
+  .barna__about .list li {
+    width: 100%;
+  }
+  .barna__partners li {
+    width: 100%;
+  }
+  #footer .widgets .item {
+    padding-left: 70px;
+  }
+}
+
+/* Modalbox */
+.barna_modalbox,
+.barna_modalbox * {
+  box-sizing: border-box;
+}
+.barna_modalbox .modal_content {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #fff;
+}
+.barna_modalbox .modal_content::-webkit-scrollbar {
+  width: 11px;
+}
+.barna_modalbox .modal_content:-webkit-scrollbar-track {
+  background: #fff;
+}
+.barna_modalbox .modal_content::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+  border: 3px solid #fff;
+}
+.barna_modalbox .fixed_title:empty {
+  display: none;
+}
+.barna_modalbox .fixed_title {
+  margin: 0;
+  font-family: "Poppins";
+  font-size: 18px;
+  color: #eee;
+  background: #000;
+  position: fixed;
+  z-index: 44;
+  left: 0;
+  padding: 5px 15px;
+  top: 5px;
+  box-shadow: 0px 3px 4px rgb(0 0 0 / 5%);
+  font-weight: 500;
+  border-radius: 0 10px 10px 0;
+  text-transform: capitalize;
+}
+.barna_modalbox .fixed_title span {
+  color: #7e7e7e;
+  font-family: monospace;
+  font-size: 14px;
+  display: block;
+  border-bottom: 1px solid #bfbfbf;
+}
+.barna_modalbox {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100vh;
+  z-index: 999;
+  background-color: #040404;
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.barna_modalbox.opened {
+  opacity: 1;
+  visibility: visible;
+}
+.barna_modalbox .container {
+  height: 100vh;
+}
+.barna_modalbox .box_inner {
+  position: absolute;
+  top: 70px;
+  bottom: 70px;
+  width: 968px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: -20px;
+  border-radius: 5px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.barna_modalbox.opened .box_inner {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0px;
+}
+.barna_modalbox .close {
+  position: fixed;
+  left: 100%;
+  top: 0px;
+  margin-left: 40px;
+  z-index: 111111;
+}
+.barna_modalbox .close a {
+  text-decoration: none;
+  color: #fff;
+}
+.barna_modalbox .close .svg {
+  width: 50px;
+  height: 50px;
+}
+.barna_modalbox .modal_content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  padding: 50px;
+  overflow-y: scroll;
+}
+.hidden_information {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -11;
+  display: none;
+}
+.barna_modalbox .image {
+  position: relative;
+  max-height: 450px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+.barna_modalbox .image img {
+  position: relative;
+  min-width: 100%;
+  opacity: 0;
+}
+.barna_modalbox .image .main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.barna_modalbox h3 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.barna_modalbox p {
+  margin-bottom: 30px;
+  text-align: justify;
+}
+.barna_modalbox .in_list {
+  width: 100%;
+  float: left;
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+.barna_modalbox .in_list ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.barna_modalbox .in_list ul li {
+  margin: 0px 0px 15px 0px;
+  width: 100%;
+  float: left;
+  position: relative;
+  padding-left: 20px;
+}
+.barna_modalbox .in_list ul li:before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: #7e7e7e;
+  left: 0px;
+  top: 13px;
+}
+.barna_modalbox .in_list ul li:last-child {
+  margin-bottom: 0px;
+}
+.barna_modalbox .in_list ul li p {
+  margin-bottom: 0px;
+}
+.barna_prevnext.disabled {
+  opacity: 0.5;
+}
+.barna_prevnext .next,
+.barna_prevnext .prev {
+  float: right;
+  position: relative;
+}
+.barna_prevnext .prev {
+  margin-right: 20px;
+}
+.barna_prevnext a {
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+  min-width: 90px;
+  position: relative;
+  color: #7e7e7e;
+  padding-bottom: 11px;
+  overflow: hidden;
+}
+.barna_prevnext .prev a {
+  text-align: left;
+}
+.barna_prevnext .next a {
+  text-align: right;
+}
+.barna_prevnext a:hover {
+  color: var(--pc);
+  border-color: var(--pc);
+}
+.barna_prevnext a:after {
+  width: 100%;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #7e7e7e;
+  transition: all 0.3s 0.3s ease;
+}
+.barna_prevnext a:before {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  height: 1px;
+  z-index: 3;
+  background-color: #dd4242;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.barna_prevnext a:hover:before {
+  width: 100%;
+  opacity: 1;
+  transition: all 0.3s 0.3s ease;
+}
+.barna_prevnext a:hover:after {
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.barna_prevnext .next a:after {
+  right: 0;
+}
+.barna_prevnext .next a:before {
+  left: 0;
+}
+.barna_prevnext .prev a:after {
+  left: 0;
+}
+.barna_prevnext .prev a:before {
+  right: 0;
+}
+.barna_modalbox .modal_content::-webkit-scrollbar {
+  width: 11px;
+}
+.barna_modalbox .modal_content {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #111;
+}
+.barna_modalbox .modal_content::-webkit-scrollbar-track {
+  background: #111;
+}
+.barna_modalbox .modal_content::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+  border: 3px solid #111;
+}
+@media (max-width: 1200px) {
+  .barna_modalbox.opened .box_inner {
+    width: 600px;
+  }
+  .barna_modalbox .close {
+    margin-left: 20px;
+  }
+  .barna_modalbox .modal_content {
+    padding: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .barna__hero .my__nav a {
+    display: none;
+  }
+  .barna__title h3 {
+    font-size: 30px;
+  }
+  .barna_modalbox .close {
+    background-color: #111319;
+  }
+  .barna_modalbox.opened .box_inner {
+    width: 500px;
+    width: 88vw;
+  }
+  .barna_modalbox .close a {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    background-color: #000;
+  }
+  .barna_modalbox .close a:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    top: 14px;
+    left: 5px;
+  }
+  .barna_modalbox .close a:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    top: 14px;
+    left: 5px;
+  }
+  .barna_modalbox .close .svg {
+    display: none;
+  }
+  .barna_modalbox .close {
+    left: auto;
+    right: 20px;
+    top: 20px;
+    border: 2px solid transparent;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  #footer .widgets {
+    padding: 100px 0 45px;
+  }
+  #contact,
+  #news,
+  #testimonials,
+  #counter,
+  #skills {
+    padding: 100px 0;
+  }
+  #portfolio {
+    padding: 100px 0 70px;
+  }
+  #services {
+    padding: 100px 0 50px;
+  }
+  #resume {
+    padding: 100px 0 71px;
+    background-color: #01011a;
+  }
+  #about {
+    padding-bottom: 100px;
+  }
+  .barna__resume_list .item h3 {
+    font-size: 24px;
+  }
+}

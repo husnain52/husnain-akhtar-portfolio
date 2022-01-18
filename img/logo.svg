@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="158" height="45" viewBox="0 0 158 45">
+  <g id="Logo" transform="translate(0 -11.458)">
+    <text id="Barna" transform="translate(53 43.958)" fill="#e4e4e4" font-size="30" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">BARNA</tspan></text>
+    <rect id="b" width="40" height="40" transform="translate(5 16.458)" fill="#dd1c63"/>
+    <rect id="b-2" data-name="b" width="40" height="40" transform="translate(0 11.458)" fill="#e4e4e4"/>
+    <path id="Icon_awesome-star-of-life" data-name="Icon awesome-star-of-life" d="M23.6,16.722,16.8,12.8l6.8-3.922a.8.8,0,0,0,.293-1.093l-1.6-2.772A.8.8,0,0,0,21.2,4.721L14.4,8.643V.8a.8.8,0,0,0-.8-.8H10.4a.8.8,0,0,0-.8.8V8.643L2.8,4.722a.8.8,0,0,0-1.094.293L.107,7.786A.8.8,0,0,0,.4,8.879L7.2,12.8.4,16.722a.8.8,0,0,0-.293,1.093l1.6,2.772a.8.8,0,0,0,1.094.293l6.8-3.922V24.8a.8.8,0,0,0,.8.8h3.2a.8.8,0,0,0,.8-.8V16.957l6.8,3.922a.8.8,0,0,0,1.094-.293l1.6-2.772a.8.8,0,0,0-.293-1.093Z" transform="translate(8 18.458)" fill="#dd1c63"/>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_42" data-name="Ellipse 42" cx="25" cy="25" r="25" transform="translate(-33.5 141)" fill="#dd1c63" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(33.5 -141)" clip-path="url(#clip-path)">
+    <g id="wifi_protected_setup_black_24dp" transform="translate(-33.5 141)">
+      <g id="Group_779" data-name="Group 779">
+        <rect id="Rectangle_12" data-name="Rectangle 12" width="50" height="50" fill="none"/>
+      </g>
+      <g id="Group_783" data-name="Group 783">
+        <g id="Group_782" data-name="Group 782">
+          <g id="Group_780" data-name="Group 780">
+            <path id="Path_1490" data-name="Path 1490" d="M34.812,11.021,39.583,6.25H22.917V22.917l4.792-4.792a16.569,16.569,0,0,1,4.937,20.938,17.674,17.674,0,0,0,2.167-28.042Z" fill="#dd1c63"/>
+          </g>
+          <g id="Group_781" data-name="Group 781">
+            <path id="Path_1491" data-name="Path 1491" d="M15.542,18.5a16.482,16.482,0,0,1,1.833-7.562,17.674,17.674,0,0,0-2.167,28.042L10.417,43.75H27.083V27.083l-4.792,4.792A16.628,16.628,0,0,1,15.542,18.5Z" fill="#dd1c63"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
